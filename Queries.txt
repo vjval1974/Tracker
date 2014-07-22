@@ -1,0 +1,10 @@
+Get the number of columns from a table
+---------------------------------------
+SELECT count(*) FROM information_schema.columns WHERE table_schema =
+'Tracker'   AND table_name = 'Main';
+
+Get the number of tables in a database
+---------------------------------------
+SELECT COUNT(*) FROM information_schema.tables WHERE table_schema =
+'Tracker';
+
