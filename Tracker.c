@@ -17,6 +17,10 @@
 #include "sfsource.h"
 #include "serialsource.h"
 
+
+
+
+
 static char *msgs[] = {
   "unknown_packet_type",
   "ack_timeout"	,
@@ -37,6 +41,7 @@ static char *msgs[] = {
 
 #define RANGE 48 // range of RSSI values
 #define PACKET_SIZE 21 // Size of the packet received from the forwarder
+#define NOISE_FLOOR 200 // Lowest readable value of RSSI.
 
 //DEFAULT VALUES
 #define X_SIZE 5 // physical size in the x direction
@@ -57,7 +62,7 @@ static char *msgs[] = {
 struct Packet { 
     uint8_t source_id; // sensor that made the packet
     uint16_t seq_no;  // sent from target to synchronise packets
-    uint8_t rssi;    // Received Signal Strength value
+    int8_t rssi;    // Received Signal Strength value
     uint16_t reading;  // reading from sensor (temp)
     uint8_t lqi; // link quility indicator value. 
 } Rec_Packet, // Received Packet.  
@@ -101,6 +106,7 @@ unsigned char clear_database(void);
 unsigned char populate_main(void);
 unsigned char store_monitor(struct Packet P, int sample);
 unsigned char get_position(void);
+unsigned char delete_pos_data(void);
 
 //User interface
 void clearScreen(); 
@@ -183,6 +189,7 @@ int main(int argc, char **argv)
         {
 
             fflush(stdout);
+            delete_pos_data();
             profiling(dev, baud, stderr_msg);
             populate_main();
             break; 
@@ -368,8 +375,11 @@ void profiling(const char *dev, const int baud, void (*message)(serial_source_ms
                                     num_stored++;
 
                                     for (ii = 0; ii < g_settings.num_sensors; ii++)
+                                    {
+                                        //if (Packet_Buffer[found_items[ii]].rssi < NOISE_FLOOR)
+                                        Packet_Buffer[found_items[ii]].rssi -= 45;
                                         store(Packet_Buffer[found_items[ii]], x_pos, y_pos); 
-                                    
+                                    }
                                 }// if (num_found... 
                             }// if item == search variable...
                         }//for ll = 0 ...
@@ -384,6 +394,52 @@ void profiling(const char *dev, const int baud, void (*message)(serial_source_ms
     }//for x_pos
 
 }
+unsigned char delete_pos_data(void)
+{
+
+    MYSQL *conn;
+    char table_name[30]; 
+    char query[512];
+    int ii = 0, x_pos = 0, y_pos = 0;
+    conn = mysql_init(NULL);
+    //Connect to the Database
+    if (!mysql_real_connect(conn, server,
+                            user, password, database, 0, NULL, 0)) 
+    {
+        fprintf(stderr, "%s\n", mysql_error(conn));
+        mysql_close(conn);        
+        return 1;
+    }
+   
+
+
+
+    for (ii = 0; ii < g_settings.num_sensors; ii++)
+    {
+        for (x_pos = 1; x_pos <= g_settings.x_size; x_pos++)
+        {
+            for (y_pos = 1; y_pos <=g_settings.y_size; y_pos++)
+            {
+
+                sprintf(table_name, "s%02d_pos%02d_%02d", g_settings.ids[ii], x_pos, y_pos);
+    
+   
+                sprintf(query, "delete from  %s;", table_name);
+                if (mysql_query(conn, query)) 
+                {
+                    fprintf(stderr, "%s\n", mysql_error(conn));
+                    mysql_close(conn);        
+                    return 1;
+                }
+            }
+        }
+    }
+                //printf("Query sent: %s\n", query);
+    mysql_close(conn);
+    return 0;
+}
+
+
 
 
 unsigned char store(struct Packet P, uint8_t x_pos, uint8_t y_pos){
@@ -525,7 +581,8 @@ unsigned char create_tables(void)
 
    
 
-    
+    printf("Creating Position tables\r\n");
+
     // initialise the grid so we can use the position values.
     for (kk = 0; kk < g_settings.num_sensors; kk++)
     {
@@ -545,7 +602,7 @@ unsigned char create_tables(void)
         }
     }
     
-       
+         printf("Creating Main and Current Reading tables\r\n");
     const char  prefix[] = "CREATE TABLE IF NOT EXISTS Main(position INT(4) UNIQUE PRIMARY KEY ";
     const char  prefix2[] = "CREATE TABLE IF NOT EXISTS Current_reading(position INT(4) UNIQUE PRIMARY KEY ";
     const char  suffix[] =  ") ENGINE = INNODB;";
@@ -575,13 +632,13 @@ unsigned char create_tables(void)
         return 1;
      }
 
-
+     printf("Creating monitor\r\n");
     char  pre[] = "CREATE TABLE IF NOT EXISTS monitor(sample INT(4) UNIQUE PRIMARY KEY \0";
     char  suf[] =  ") ENGINE = INNODB;\0";
     strcat(middle1, pre);
     for (ll = 0; ll < g_settings.num_sensors; ll++)
     {
-        sprintf(temp1, ",S%02d INT(4)", g_settings.ids[ll]);
+        sprintf(temp1, ",S%02d_rssi INT(4)", g_settings.ids[ll]);
         strcat(middle1, temp1);
         
     }
@@ -593,7 +650,7 @@ unsigned char create_tables(void)
         mysql_close(conn);
         return 1;
     }
-    
+      printf("Inserting values into monitor\r\n");
     for (ii = 0; ii < g_settings.num_samples; ii++)
     {
         sprintf(query, "insert into monitor(sample) VALUES  (%02d);",ii+1);
@@ -604,7 +661,7 @@ unsigned char create_tables(void)
         }
         
     }
-    
+      printf("Creating diff table\r\n");
     sprintf(query, "CREATE TABLE IF NOT EXISTS diff LIKE Main;");
     if (mysql_query(conn, query)) {
         fprintf(stderr, "%s\n", mysql_error(conn));
@@ -709,8 +766,8 @@ unsigned char clear_database(void)
     if (mysql_query(conn, query)) 
     {
         fprintf(stderr, "%s\n", mysql_error(conn));
-        mysql_close(conn);
-        return 1;
+        // mysql_close(conn);
+        //return 1;
     }
     
     printf("Creating database\n");
@@ -725,7 +782,7 @@ unsigned char clear_database(void)
     if (mysql_query(conn, query)) 
     {
         fprintf(stderr, "%s\n", mysql_error(conn));
-       
+        mysql_close(conn);
         return 1;
 
     }
@@ -1082,7 +1139,7 @@ unsigned char populate_main(void)
             }//for ii
         }//for jj
     }// for kk
-    
+    mysql_close(conn);        
 
     return 0;
 }
@@ -1189,7 +1246,8 @@ void Monitoring(const char *dev, const int baud, void (*message)(serial_source_m
 
                             for (ii = 0; ii < g_settings.num_sensors; ii++)
                             {
-                                
+                                //  if (Packet_Buffer[found_items[ii]].rssi < NOISE_FLOOR)
+                                Packet_Buffer[found_items[ii]].rssi -= 45;
                                 store_monitor(Packet_Buffer[found_items[ii]], num_stored); 
                                 
                             }       
@@ -1225,7 +1283,7 @@ unsigned char store_monitor(struct Packet P, int sample)
     }
 
 
-    sprintf(query, "UPDATE monitor SET S%02d = %d WHERE sample = %02d;", P.source_id, P.rssi, sample);
+    sprintf(query, "UPDATE monitor SET S%02d_rssi = %d WHERE sample = %02d;", P.source_id, P.rssi, sample);
     printf("%s\n", query);
     if (mysql_query(conn, query)) 
     {
@@ -1234,7 +1292,7 @@ unsigned char store_monitor(struct Packet P, int sample)
         return 1;
     }   
 
-
+    mysql_close(conn);     
     return 0;
 
 }
@@ -1253,15 +1311,18 @@ unsigned char get_position(void)
     //the main table (this will be the closest position);
 
     MYSQL *conn;
-    MYSQL_RES *res;
+    MYSQL_RES *res, *res2;
     MYSQL_ROW row;
     char  suf[] =  "FROM monitor";    
    
     char middle1[512];
     char temp1[128];
-    int ll;
-    uint16_t avgs[g_settings.num_sensors];
-
+    char query[512];
+    int ii,jj = 0,kk = 0,ll, mm = 0;
+    int16_t avgs[g_settings.num_sensors];
+    int16_t results[g_settings.x_size * g_settings.y_size][g_settings.num_sensors];
+    uint16_t pos = 0;
+    uint16_t num_fields = 0;
     conn = mysql_init(NULL);
 
     //Connect to the Database
@@ -1274,10 +1335,10 @@ unsigned char get_position(void)
     }
 
         
-    sprintf(middle1, "SELECT AVG(S%02d)", g_settings.ids[0]);
+    sprintf(middle1, "SELECT AVG(S%02d_rssi)", g_settings.ids[0]);
     for (ll = 1; ll < g_settings.num_sensors; ll++)
     {
-        sprintf(temp1, ",AVG(S%02d) ", g_settings.ids[ll]);
+        sprintf(temp1, ",AVG(S%02d_rssi) ", g_settings.ids[ll]);
         strcat(middle1, temp1);
     }
     strcat(middle1, suf);
@@ -1291,9 +1352,8 @@ unsigned char get_position(void)
     
 
     res = mysql_use_result(conn);
-    
-    
-    row = mysql_fetch_row(res);
+    row = mysql_fetch_row(res);    
+   
     if (row != NULL)
     {
         for (ll = 0; ll < g_settings.num_sensors; ll++)
@@ -1315,6 +1375,93 @@ unsigned char get_position(void)
 
 
 
+//===============
+  if (mysql_query(conn, "SELECT * from Main;")) 
+    {
+        fprintf(stderr, "%s\n", mysql_error(conn));
+        mysql_close(conn);
+        return 1;
+    }    
+    res2 = mysql_use_result(conn);
+    num_fields = mysql_num_fields(res2);
+     
+    row = mysql_fetch_row(res2);
+    while (row != NULL)
+    {
+        
+        for (ii = 1; ii < num_fields; ii+=2)
+        {
+            results[jj][kk] = avgs[kk] - atoi(row[ii]);
+            printf("Results[%d][%d](%d) = avgs[%d](%d) - atoi(row[%d])(%d)\n", jj,kk, results[jj][kk], kk,avgs[kk],ii,atoi(row[ii]));
+            kk++;
+        }
+        kk = 0;
+        jj++;
+        printf("\n");
+        row = mysql_fetch_row(res2);
+        
+        //Think about:
+        //If we got all the RSSI values back to the base station and
+        //they were in a message, then the sensor cannot be out of
+        //range, it must be too close to the target sensor, and hence
+        //255 should be read. 
+    }
+   
+    int16_t sum = 0, lowest = 32767, low_row; 
+    
+    mysql_free_result(res2);
+//=======================
+    for (jj = 0; jj < (g_settings.x_size * g_settings.y_size); jj++)
+    {
+        for (kk = 0; kk < g_settings.num_sensors; kk++)
+        {
+            sum += abs(results[jj][kk]);
+            printf("%d, ", abs(results[jj][kk]));
+        }
+        if (sum < lowest)
+        {
+            lowest = sum;
+            low_row = jj;
+        }
+            sum = 0;
+        
+        printf("\n");
+    }
+    printf("lowest = %d at %d\n", lowest, low_row);
+                   
+    
+    sprintf(query, "SELECT * FROM Main ORDER BY position LIMIT %d,1", low_row);
+ if (mysql_query(conn, query)) 
+    {
+        fprintf(stderr, "%s\n", mysql_error(conn));
+        mysql_close(conn);
+        return 1;
+    }
+    
+
+    res = mysql_use_result(conn);
+    row = mysql_fetch_row(res);    
+   
+    if (row != NULL)
+    {
+        pos = atoi(row[0]);
+        printf("Position = %d\r\n", pos);
+
+        
+    }
+    else 
+    {
+        // row corrupt or empty. 
+        mysql_close(conn);
+        return EXIT_FAILURE;
+    }
+
+    mysql_free_result(res);
+
+
+
+
+    mysql_close(conn);
 
     return 0;
 

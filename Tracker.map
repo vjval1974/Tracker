@@ -94,29 +94,29 @@ LOAD /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
  *(.gnu.hash)
  .gnu.hash      0x00000000080481ac       0x48 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.dynsym         0x00000000080481f4      0x350
+.dynsym         0x00000000080481f4      0x360
  *(.dynsym)
- .dynsym        0x00000000080481f4      0x350 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .dynsym        0x00000000080481f4      0x360 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.dynstr         0x0000000008048544      0x252
+.dynstr         0x0000000008048554      0x263
  *(.dynstr)
- .dynstr        0x0000000008048544      0x252 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .dynstr        0x0000000008048554      0x263 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.gnu.version    0x0000000008048796       0x6a
+.gnu.version    0x00000000080487b8       0x6c
  *(.gnu.version)
- .gnu.version   0x0000000008048796       0x6a /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .gnu.version   0x00000000080487b8       0x6c /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.gnu.version_d  0x0000000008048800        0x0
+.gnu.version_d  0x0000000008048824        0x0
  *(.gnu.version_d)
  .gnu.version_d
                 0x0000000000000000        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.gnu.version_r  0x0000000008048800       0x80
+.gnu.version_r  0x0000000008048824       0x80
  *(.gnu.version_r)
  .gnu.version_r
-                0x0000000008048800       0x80 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x0000000008048824       0x80 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.rel.dyn        0x0000000008048880       0x20
+.rel.dyn        0x00000000080488a4       0x20
  *(.rel.init)
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
  .rel.text      0x0000000000000000        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
@@ -129,170 +129,173 @@ LOAD /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
  *(.rel.ctors)
  *(.rel.dtors)
  *(.rel.got)
- .rel.got       0x0000000008048880        0x8 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .rel.got       0x00000000080488a4        0x8 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
- .rel.bss       0x0000000008048888       0x18 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .rel.bss       0x00000000080488ac       0x18 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
  *(.rel.ifunc)
 
-.rel.plt        0x00000000080488a0      0x150
+.rel.plt        0x00000000080488c4      0x158
  *(.rel.plt)
- .rel.plt       0x00000000080488a0      0x150 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x00000000080489f0                PROVIDE (__rel_iplt_start, .)
+ .rel.plt       0x00000000080488c4      0x158 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x0000000008048a1c                PROVIDE (__rel_iplt_start, .)
  *(.rel.iplt)
  .rel.iplt      0x0000000000000000        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x00000000080489f0                PROVIDE (__rel_iplt_end, .)
+                0x0000000008048a1c                PROVIDE (__rel_iplt_end, .)
 
-.init           0x00000000080489f0       0x2e
+.init           0x0000000008048a1c       0x2e
  *(.init)
- .init          0x00000000080489f0       0x1f /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
-                0x00000000080489f0                _init
- .init          0x0000000008048a0f        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
- .init          0x0000000008048a14        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
- .init          0x0000000008048a19        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
+ .init          0x0000000008048a1c       0x1f /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
+                0x0000000008048a1c                _init
+ .init          0x0000000008048a3b        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .init          0x0000000008048a40        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .init          0x0000000008048a45        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
 
-.plt            0x0000000008048a20      0x2b0
+.plt            0x0000000008048a50      0x2c0
  *(.plt)
- .plt           0x0000000008048a20      0x2b0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x0000000008048a30                strcmp@@GLIBC_2.0
-                0x0000000008048a40                read@@GLIBC_2.0
-                0x0000000008048a50                printf@@GLIBC_2.0
-                0x0000000008048a60                fflush@@GLIBC_2.0
-                0x0000000008048a70                tcflush@@GLIBC_2.0
-                0x0000000008048a80                memmove@@GLIBC_2.0
-                0x0000000008048a90                free@@GLIBC_2.0
-                0x0000000008048aa0                memcpy@@GLIBC_2.0
-                0x0000000008048ab0                mysql_query
-                0x0000000008048ac0                mysql_fetch_row
-                0x0000000008048ad0                cfsetospeed@@GLIBC_2.0
-                0x0000000008048ae0                gettimeofday@@GLIBC_2.0
-                0x0000000008048af0                select@@GLIBC_2.0
-                0x0000000008048b00                __stack_chk_fail@@GLIBC_2.4
-                0x0000000008048b10                __fdelt_chk@@GLIBC_2.15
-                0x0000000008048b20                strcat@@GLIBC_2.0
-                0x0000000008048b30                tcsetattr@@GLIBC_2.0
-                0x0000000008048b40                malloc@@GLIBC_2.0
-                0x0000000008048b50                puts@@GLIBC_2.0
-                0x0000000008048b70                exit@@GLIBC_2.0
-                0x0000000008048b80                open@@GLIBC_2.0
-                0x0000000008048b90                __libc_start_main@@GLIBC_2.0
-                0x0000000008048ba0                fprintf@@GLIBC_2.0
-                0x0000000008048bb0                write@@GLIBC_2.0
-                0x0000000008048bc0                cfsetispeed@@GLIBC_2.0
-                0x0000000008048bd0                fcntl@@GLIBC_2.0
-                0x0000000008048be0                mysql_real_connect
-                0x0000000008048bf0                putchar@@GLIBC_2.0
-                0x0000000008048c00                __errno_location@@GLIBC_2.0
-                0x0000000008048c10                mysql_close
-                0x0000000008048c20                mysql_init
-                0x0000000008048c30                mysql_free_result
-                0x0000000008048c40                mysql_use_result
-                0x0000000008048c50                mysql_error
-                0x0000000008048c60                sprintf@@GLIBC_2.0
-                0x0000000008048c70                __isoc99_scanf@@GLIBC_2.7
-                0x0000000008048c80                atoi@@GLIBC_2.0
-                0x0000000008048c90                strtol@@GLIBC_2.0
-                0x0000000008048ca0                close@@GLIBC_2.0
-                0x0000000008048cb0                __ctype_b_loc@@GLIBC_2.3
-                0x0000000008048cc0                calloc@@GLIBC_2.0
+ .plt           0x0000000008048a50      0x2c0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x0000000008048a60                strcmp@@GLIBC_2.0
+                0x0000000008048a70                read@@GLIBC_2.0
+                0x0000000008048a80                printf@@GLIBC_2.0
+                0x0000000008048a90                fflush@@GLIBC_2.0
+                0x0000000008048aa0                tcflush@@GLIBC_2.0
+                0x0000000008048ab0                memmove@@GLIBC_2.0
+                0x0000000008048ac0                free@@GLIBC_2.0
+                0x0000000008048ad0                memcpy@@GLIBC_2.0
+                0x0000000008048ae0                mysql_query
+                0x0000000008048af0                mysql_fetch_row
+                0x0000000008048b00                cfsetospeed@@GLIBC_2.0
+                0x0000000008048b10                mysql_num_fields
+                0x0000000008048b20                gettimeofday@@GLIBC_2.0
+                0x0000000008048b30                select@@GLIBC_2.0
+                0x0000000008048b40                __stack_chk_fail@@GLIBC_2.4
+                0x0000000008048b50                __fdelt_chk@@GLIBC_2.15
+                0x0000000008048b60                strcat@@GLIBC_2.0
+                0x0000000008048b70                tcsetattr@@GLIBC_2.0
+                0x0000000008048b80                malloc@@GLIBC_2.0
+                0x0000000008048b90                puts@@GLIBC_2.0
+                0x0000000008048bb0                exit@@GLIBC_2.0
+                0x0000000008048bc0                open@@GLIBC_2.0
+                0x0000000008048bd0                __libc_start_main@@GLIBC_2.0
+                0x0000000008048be0                fprintf@@GLIBC_2.0
+                0x0000000008048bf0                write@@GLIBC_2.0
+                0x0000000008048c00                cfsetispeed@@GLIBC_2.0
+                0x0000000008048c10                fcntl@@GLIBC_2.0
+                0x0000000008048c20                mysql_real_connect
+                0x0000000008048c30                putchar@@GLIBC_2.0
+                0x0000000008048c40                __errno_location@@GLIBC_2.0
+                0x0000000008048c50                mysql_close
+                0x0000000008048c60                mysql_init
+                0x0000000008048c70                mysql_free_result
+                0x0000000008048c80                mysql_use_result
+                0x0000000008048c90                mysql_error
+                0x0000000008048ca0                sprintf@@GLIBC_2.0
+                0x0000000008048cb0                __isoc99_scanf@@GLIBC_2.7
+                0x0000000008048cc0                atoi@@GLIBC_2.0
+                0x0000000008048cd0                strtol@@GLIBC_2.0
+                0x0000000008048ce0                close@@GLIBC_2.0
+                0x0000000008048cf0                __ctype_b_loc@@GLIBC_2.3
+                0x0000000008048d00                calloc@@GLIBC_2.0
  *(.iplt)
  .iplt          0x0000000000000000        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.text           0x0000000008048cd0     0x402c
+.text           0x0000000008048d10     0x48fc
  *(.text.unlikely .text.*_unlikely)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
  *(.text.hot .text.hot.*)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000008048cd0       0x24 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x0000000008048cd0                _start
- .text          0x0000000008048cf4        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
- *fill*         0x0000000008048cf4        0xc 90909090
- .text          0x0000000008048d00       0x83 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
- *fill*         0x0000000008048d83        0x1 90909090
- .text          0x0000000008048d84     0x2f3c Tracker.o
-                0x0000000008048d84                stderr_msg
-                0x0000000008048db0                main
-                0x000000000804902c                clearScreen
-                0x0000000008049056                profiling
-                0x0000000008049429                store
-                0x00000000080495d9                store_g_settings
-                0x000000000804994d                create_tables
-                0x000000000804a4a1                set_g_settings
-                0x000000000804a5bd                clear_database
-                0x000000000804a80c                get_sensor_id
-                0x000000000804aad3                display_settings
-                0x000000000804aba4                check_db_health
-                0x000000000804b19f                populate_main
-                0x000000000804b4f8                Monitoring
-                0x000000000804b81e                store_monitor
-                0x000000000804b992                get_position
- .text          0x000000000804bcc0      0xf8d libmote.a(serialsource.o)
-                0x000000000804c4b0                open_serial_source
-                0x000000000804c8c0                serial_source_fd
-                0x000000000804c8d0                close_serial_source
-                0x000000000804c910                serial_source_empty
-                0x000000000804c940                read_serial_packet
-                0x000000000804c9c0                write_serial_packet
-                0x000000000804cac0                platform_baud_rate
- *fill*         0x000000000804cc4d        0x3 90909090
- .text          0x000000000804cc50       0x72 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x000000000804cc50                __libc_csu_init
-                0x000000000804ccc0                __libc_csu_fini
+ .text          0x0000000008048d10       0x24 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x0000000008048d10                _start
+ .text          0x0000000008048d34        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
+ *fill*         0x0000000008048d34        0xc 90909090
+ .text          0x0000000008048d40       0x83 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ *fill*         0x0000000008048dc3        0x1 90909090
+ .text          0x0000000008048dc4     0x3800 Tracker.o
+                0x0000000008048dc4                stderr_msg
+                0x0000000008048df0                main
+                0x0000000008049071                clearScreen
+                0x000000000804909b                profiling
+                0x00000000080494bd                delete_pos_data
+                0x00000000080496fa                store
+                0x00000000080498aa                store_g_settings
+                0x0000000008049c1e                create_tables
+                0x000000000804a7ae                set_g_settings
+                0x000000000804a8ca                clear_database
+                0x000000000804ab0f                get_sensor_id
+                0x000000000804add6                display_settings
+                0x000000000804aea7                check_db_health
+                0x000000000804b4a2                populate_main
+                0x000000000804b809                Monitoring
+                0x000000000804bb7e                store_monitor
+                0x000000000804bd00                get_position
+ *fill*         0x000000000804c5c4        0xc 90909090
+ .text          0x000000000804c5d0      0xf8d libmote.a(serialsource.o)
+                0x000000000804cdc0                open_serial_source
+                0x000000000804d1d0                serial_source_fd
+                0x000000000804d1e0                close_serial_source
+                0x000000000804d220                serial_source_empty
+                0x000000000804d250                read_serial_packet
+                0x000000000804d2d0                write_serial_packet
+                0x000000000804d3d0                platform_baud_rate
+ *fill*         0x000000000804d55d        0x3 90909090
+ .text          0x000000000804d560       0x72 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x000000000804d560                __libc_csu_init
+                0x000000000804d5d0                __libc_csu_fini
  .text.__i686.get_pc_thunk.bx
-                0x000000000804ccc2        0x4 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x000000000804ccc2                __i686.get_pc_thunk.bx
- *fill*         0x000000000804ccc6        0xa 90909090
- .text          0x000000000804ccd0       0x2a /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
- *fill*         0x000000000804ccfa        0x2 90909090
- .text          0x000000000804ccfc        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
+                0x000000000804d5d2        0x4 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x000000000804d5d2                __i686.get_pc_thunk.bx
+ *fill*         0x000000000804d5d6        0xa 90909090
+ .text          0x000000000804d5e0       0x2a /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ *fill*         0x000000000804d60a        0x2 90909090
+ .text          0x000000000804d60c        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x000000000804ccfc       0x1a
+.fini           0x000000000804d60c       0x1a
  *(.fini)
- .fini          0x000000000804ccfc       0x10 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
-                0x000000000804ccfc                _fini
- .fini          0x000000000804cd0c        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
- .fini          0x000000000804cd11        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
-                0x000000000804cd16                PROVIDE (__etext, .)
-                0x000000000804cd16                PROVIDE (_etext, .)
-                0x000000000804cd16                PROVIDE (etext, .)
+ .fini          0x000000000804d60c       0x10 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
+                0x000000000804d60c                _fini
+ .fini          0x000000000804d61c        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .fini          0x000000000804d621        0x5 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
+                0x000000000804d626                PROVIDE (__etext, .)
+                0x000000000804d626                PROVIDE (_etext, .)
+                0x000000000804d626                PROVIDE (etext, .)
 
-.rodata         0x000000000804cd18      0xc7c
+.rodata         0x000000000804d628      0xdd1
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x000000000804cd18        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804cd18                _fp_hw
- .rodata.cst4   0x000000000804cd1c        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804cd1c                _IO_stdin_used
- .rodata        0x000000000804cd20      0xc17 Tracker.o
+ .rodata        0x000000000804d628        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x000000000804d628                _fp_hw
+ .rodata.cst4   0x000000000804d62c        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x000000000804d62c                _IO_stdin_used
+ .rodata        0x000000000804d630      0xd6c Tracker.o
  .rodata.str1.1
-                0x000000000804d937       0x5d libmote.a(serialsource.o)
+                0x000000000804e39c       0x5d libmote.a(serialsource.o)
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x000000000804d994      0x10c
+.eh_frame_hdr   0x000000000804e3fc      0x114
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x000000000804d994      0x10c /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .eh_frame_hdr  0x000000000804e3fc      0x114 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.eh_frame       0x000000000804daa0      0x550
+.eh_frame       0x000000000804e510      0x57c
  *(.eh_frame)
- .eh_frame      0x000000000804daa0       0x3c /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .eh_frame      0x000000000804e510       0x3c /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
                                          0x40 (size before relaxing)
- .eh_frame      0x000000000804dadc      0x264 Tracker.o
-                                        0x27c (size before relaxing)
- .eh_frame      0x000000000804dd40      0x248 libmote.a(serialsource.o)
+ .eh_frame      0x000000000804e54c      0x290 Tracker.o
+                                        0x2a8 (size before relaxing)
+ .eh_frame      0x000000000804e7dc      0x248 libmote.a(serialsource.o)
                                         0x260 (size before relaxing)
- .eh_frame      0x000000000804df88       0x64 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x000000000804ea24       0x64 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x7c (size before relaxing)
- .eh_frame      0x000000000804dfec        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .eh_frame      0x000000000804ea88        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x000000000804dff0                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x000000000804ef04                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
+                0x000000000804ea8c                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x000000000804ff04                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -310,124 +313,124 @@ LOAD /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x000000000804ef04        0x0
-                0x000000000804ef04                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x000000000804ff04        0x0
+                0x000000000804ff04                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x000000000804ef04                PROVIDE (__preinit_array_end, .)
+                0x000000000804ff04                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x000000000804ef04        0x0
-                0x000000000804ef04                PROVIDE (__init_array_start, .)
+.init_array     0x000000000804ff04        0x0
+                0x000000000804ff04                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*) SORT(.ctors.*))
  *(.init_array)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
-                0x000000000804ef04                PROVIDE (__init_array_end, .)
+                0x000000000804ff04                PROVIDE (__init_array_end, .)
 
-.fini_array     0x000000000804ef04        0x0
-                0x000000000804ef04                PROVIDE (__fini_array_start, .)
+.fini_array     0x000000000804ff04        0x0
+                0x000000000804ff04                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*) SORT(.dtors.*))
  *(.fini_array)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
-                0x000000000804ef04                PROVIDE (__fini_array_end, .)
+                0x000000000804ff04                PROVIDE (__fini_array_end, .)
 
-.ctors          0x000000000804ef04        0x8
+.ctors          0x000000000804ff04        0x8
  *crtbegin.o(.ctors)
- .ctors         0x000000000804ef04        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .ctors         0x000000000804ff04        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
- .ctors         0x000000000804ef08        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .ctors         0x000000000804ff08        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
 
-.dtors          0x000000000804ef0c        0x8
+.dtors          0x000000000804ff0c        0x8
  *crtbegin.o(.dtors)
- .dtors         0x000000000804ef0c        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .dtors         0x000000000804ff0c        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
- .dtors         0x000000000804ef10        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
-                0x000000000804ef10                __DTOR_END__
+ .dtors         0x000000000804ff10        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+                0x000000000804ff10                __DTOR_END__
 
-.jcr            0x000000000804ef14        0x4
+.jcr            0x000000000804ff14        0x4
  *(.jcr)
- .jcr           0x000000000804ef14        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
- .jcr           0x000000000804ef14        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .jcr           0x000000000804ff14        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .jcr           0x000000000804ff14        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
 
 .data.rel.ro
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x000000000804ef18       0xd8
+.dynamic        0x000000000804ff18       0xd8
  *(.dynamic)
- .dynamic       0x000000000804ef18       0xd8 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804ef18                _DYNAMIC
+ .dynamic       0x000000000804ff18       0xd8 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x000000000804ff18                _DYNAMIC
 
-.got            0x000000000804eff0        0x4
+.got            0x000000000804fff0        0x4
  *(.got)
- .got           0x000000000804eff0        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .got           0x000000000804fff0        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
  *(.igot)
-                0x000000000804eff4                . = DATA_SEGMENT_RELRO_END (., 0xc)
+                0x000000000804fff4                . = DATA_SEGMENT_RELRO_END (., 0xc)
 
-.got.plt        0x000000000804eff4       0xb4
+.got.plt        0x000000000804fff4       0xb8
  *(.got.plt)
- .got.plt       0x000000000804eff4       0xb4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804eff4                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x000000000804fff4       0xb8 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x000000000804fff4                _GLOBAL_OFFSET_TABLE_
  *(.igot.plt)
  .igot.plt      0x0000000000000000        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
 
-.data           0x000000000804f0c0       0x58
+.data           0x00000000080500c0       0x58
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x000000000804f0c0        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804f0c0                data_start
-                0x000000000804f0c0                __data_start
- .data          0x000000000804f0c4        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
- .data          0x000000000804f0c4        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
-                0x000000000804f0c4                __dso_handle
- *fill*         0x000000000804f0c8       0x18 00
- .data          0x000000000804f0e0       0x38 Tracker.o
-                0x000000000804f108                server
-                0x000000000804f10c                user
-                0x000000000804f110                password
-                0x000000000804f114                database
- .data          0x000000000804f118        0x0 libmote.a(serialsource.o)
- .data          0x000000000804f118        0x0 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
- .data          0x000000000804f118        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
- .data          0x000000000804f118        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
+ .data          0x00000000080500c0        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x00000000080500c0                data_start
+                0x00000000080500c0                __data_start
+ .data          0x00000000080500c4        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
+ .data          0x00000000080500c4        0x4 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+                0x00000000080500c4                __dso_handle
+ *fill*         0x00000000080500c8       0x18 00
+ .data          0x00000000080500e0       0x38 Tracker.o
+                0x0000000008050108                server
+                0x000000000805010c                user
+                0x0000000008050110                password
+                0x0000000008050114                database
+ .data          0x0000000008050118        0x0 libmote.a(serialsource.o)
+ .data          0x0000000008050118        0x0 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .data          0x0000000008050118        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .data          0x0000000008050118        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
 
 .data1
  *(.data1)
-                0x000000000804f118                _edata = .
-                0x000000000804f118                PROVIDE (edata, .)
-                0x000000000804f118                __bss_start = .
+                0x0000000008050118                _edata = .
+                0x0000000008050118                PROVIDE (edata, .)
+                0x0000000008050118                __bss_start = .
 
-.bss            0x000000000804f120      0x258
+.bss            0x0000000008050120      0x258
  *(.dynbss)
- .dynbss        0x000000000804f120       0x24 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
-                0x000000000804f120                stderr@@GLIBC_2.0
-                0x000000000804f124                stdin@@GLIBC_2.0
-                0x000000000804f140                stdout@@GLIBC_2.0
+ .dynbss        0x0000000008050120       0x24 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+                0x0000000008050120                stderr@@GLIBC_2.0
+                0x0000000008050124                stdin@@GLIBC_2.0
+                0x0000000008050140                stdout@@GLIBC_2.0
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000000804f144        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
- .bss           0x000000000804f144        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
- .bss           0x000000000804f144        0x8 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
- .bss           0x000000000804f14c        0x0 Tracker.o
- .bss           0x000000000804f14c        0x0 libmote.a(serialsource.o)
- .bss           0x000000000804f14c        0x0 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
- .bss           0x000000000804f14c        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
- .bss           0x000000000804f14c        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
+ .bss           0x0000000008050144        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crt1.o
+ .bss           0x0000000008050144        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crti.o
+ .bss           0x0000000008050144        0x8 /usr/lib/gcc/i686-linux-gnu/4.6/crtbegin.o
+ .bss           0x000000000805014c        0x0 Tracker.o
+ .bss           0x000000000805014c        0x0 libmote.a(serialsource.o)
+ .bss           0x000000000805014c        0x0 /usr/lib/i386-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .bss           0x000000000805014c        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/crtend.o
+ .bss           0x000000000805014c        0x0 /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
  *(COMMON)
- *fill*         0x000000000804f14c       0x14 00
- COMMON         0x000000000804f160      0x216 Tracker.o
-                0x000000000804f160                Packet_Buffer
-                0x000000000804f354                Rec_Packet
-                0x000000000804f35e                g_settings
-                0x000000000804f378                . = ALIGN ((. != 0x0)?0x4:0x1)
- *fill*         0x000000000804f376        0x2 00
-                0x000000000804f378                . = ALIGN (0x4)
-                0x000000000804f378                . = ALIGN (0x4)
-                0x000000000804f378                _end = .
-                0x000000000804f378                PROVIDE (end, .)
-                0x000000000804f378                . = DATA_SEGMENT_END (.)
+ *fill*         0x000000000805014c       0x14 00
+ COMMON         0x0000000008050160      0x216 Tracker.o
+                0x0000000008050160                Packet_Buffer
+                0x0000000008050354                Rec_Packet
+                0x000000000805035e                g_settings
+                0x0000000008050378                . = ALIGN ((. != 0x0)?0x4:0x1)
+ *fill*         0x0000000008050376        0x2 00
+                0x0000000008050378                . = ALIGN (0x4)
+                0x0000000008050378                . = ALIGN (0x4)
+                0x0000000008050378                _end = .
+                0x0000000008050378                PROVIDE (end, .)
+                0x0000000008050378                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -478,35 +481,35 @@ LOAD /usr/lib/gcc/i686-linux-gnu/4.6/../../../i386-linux-gnu/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x3549
+.debug_info     0x0000000000000000     0x36bf
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000     0x1d33 Tracker.o
- .debug_info    0x0000000000001d33     0x1816 libmote.a(serialsource.o)
+ .debug_info    0x0000000000000000     0x1ea9 Tracker.o
+ .debug_info    0x0000000000001ea9     0x1816 libmote.a(serialsource.o)
 
 .debug_abbrev   0x0000000000000000      0x67b
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x27d Tracker.o
  .debug_abbrev  0x000000000000027d      0x3fe libmote.a(serialsource.o)
 
-.debug_line     0x0000000000000000      0xc75
+.debug_line     0x0000000000000000      0xd91
  *(.debug_line)
- .debug_line    0x0000000000000000      0x6a3 Tracker.o
- .debug_line    0x00000000000006a3      0x5d2 libmote.a(serialsource.o)
+ .debug_line    0x0000000000000000      0x7bf Tracker.o
+ .debug_line    0x00000000000007bf      0x5d2 libmote.a(serialsource.o)
 
 .debug_frame
  *(.debug_frame)
 
-.debug_str      0x0000000000000000     0x1531
+.debug_str      0x0000000000000000     0x1561
  *(.debug_str)
- .debug_str     0x0000000000000000     0x10ab Tracker.o
-                                       0x11c1 (size before relaxing)
- .debug_str     0x00000000000010ab      0x486 libmote.a(serialsource.o)
+ .debug_str     0x0000000000000000     0x10db Tracker.o
+                                       0x1207 (size before relaxing)
+ .debug_str     0x00000000000010db      0x486 libmote.a(serialsource.o)
                                         0x81e (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x14a3
+.debug_loc      0x0000000000000000     0x14db
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x380 Tracker.o
- .debug_loc     0x0000000000000380     0x1123 libmote.a(serialsource.o)
+ .debug_loc     0x0000000000000000      0x3b8 Tracker.o
+ .debug_loc     0x00000000000003b8     0x1123 libmote.a(serialsource.o)
 
 .debug_macinfo
  *(.debug_macinfo)
